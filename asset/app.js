@@ -14,31 +14,44 @@ let items = {
   decals: { name: "decals", modifier: 1, description: "Cool stickers bro!" },
   skis: { name: "skis", modifier: 2, description: "Both of them?" },
   pipes: { name: "pipes", modifier: 3, description: "She sounds mean!" }
-
-
 }
 
 function stump() {
-  let damageTaken = 1 - totalMods;
-  rmk.health -= Math.max(0, damageTaken);
-  rmk.hits++
-  saying = "Darn Trees anyway"
+  if (rmk.health > 0) {
+    let damageTaken = 1 - totalMods;
+    rmk.health -= Math.max(0, damageTaken);
+    rmk.health = Math.max(0, rmk.health);      // Makes Health stop at 0
+    rmk.hits++
+    saying = "Darn Tree anyway"
+  } else {
+    saying = "She's busted"
+  }
   update()
 }
 
 function rock() {
-  let damageTaken = 5 - totalMods;
-  rmk.health -= Math.max(0, damageTaken);
-  rmk.hits++
-  saying = "That's a big one"
+  if (rmk.health > 0) {
+    let damageTaken = 5 - totalMods;
+    rmk.health -= Math.max(0, damageTaken);
+    rmk.health = Math.max(0, rmk.health);      // Makes Health stop at 0
+    rmk.hits++
+    saying = "That's a big one"
+  } else {
+    saying = "She's busted"
+  }
   update()
 }
 
 function slide() {
-  let damageTaken = 10 - totalMods;
-  rmk.health -= Math.max(0, damageTaken);
-  rmk.hits++
-  saying = "Better scoot"
+  if (rmk.health > 0) {
+    let damageTaken = 10 - totalMods;
+    rmk.health -= Math.max(0, damageTaken);
+    rmk.health = Math.max(0, rmk.health);      // Makes Health stop at 0    
+    rmk.hits++
+    saying = "Better scoot"
+  } else {
+    saying = "She's busted"
+  }
   update()
 }
 
@@ -46,7 +59,7 @@ function reset() {
   rmk.health = 100;
   rmk.hits = 0;
   totalMods = 0;
-  saying = "How about another"
+  saying = "How about another?"
   update()
 }
 
