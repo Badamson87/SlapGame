@@ -70,10 +70,14 @@ function givePipes() {
 
 
 
+
 function update() {
   document.getElementById("health").innerText = rmk.health.toString()
   document.getElementById("myName").innerText = rmk.name.toString()
   document.getElementById("hits").innerText = rmk.hits.toString()
+  document.getElementById("healthBar").style.width = rmk.health + "%"
 }
+
+
 
 update()
