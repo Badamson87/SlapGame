@@ -49,6 +49,13 @@ function slide() {
   update()
 }
 
+function reset() {
+  rmk.health = 100;
+  rmk.hits = 0;
+  totalMods = 0;
+  update()
+}
+
 let totalMods = 0;
 
 function giveDecals() {
