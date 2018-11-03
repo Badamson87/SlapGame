@@ -21,8 +21,8 @@ let sd = {
 }
 
 let items = {
-  decals: { name: "decals", modifier: 1, description: "Sweet decals bro!" },
-  skis: { name: "skis", modifier: 2, description: "Nice skids!" },
+  decals: { name: "decals", modifier: 1, description: "Cool stickers bro!" },
+  skis: { name: "skis", modifier: 2, description: "Both of them?" },
   pipes: { name: "pipes", modifier: 3, description: "She sounds mean!" }
 
 
@@ -57,15 +57,22 @@ function reset() {
 }
 
 let totalMods = 0;
+let saying = "Sweet ride"
 
 function giveDecals() {
   totalMods++
+  saying = items.decals.description
+  update()
 }
 function giveSkis() {
   totalMods += 2
+  saying = items.skis.description
+  update()
 }
 function givePipes() {
   totalMods += 3
+  saying = items.pipes.description
+  update()
 }
 
 
@@ -76,6 +83,7 @@ function update() {
   document.getElementById("myName").innerText = rmk.name.toString()
   document.getElementById("hits").innerText = rmk.hits.toString()
   document.getElementById("healthBar").style.width = rmk.health + "%"
+  document.getElementById("saying").innerText = saying.toString()
 }
 
 
